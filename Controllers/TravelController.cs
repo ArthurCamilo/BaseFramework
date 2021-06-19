@@ -1,11 +1,13 @@
-using BaseFramework.Interfaces;
-using BaseFramework.Models;
+using BaseFramework.Components.Travel.Interfaces;
+using BaseFramework.Components.Travel.Models;
+using BaseFramework.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using BaseFramework.Components.Travel;
 
 namespace BaseFramework.Controllers
 {
@@ -15,41 +17,9 @@ namespace BaseFramework.Controllers
     {
 
         [HttpGet]
-        public float Get()
+        public float Get(string unitOfTime)
         {
-            
-            var travel = new Travel();
-            travel.Cities = new List<City>();
-
-            var cityA = new City();
-            cityA.CityName = "A"; 
-            cityA.DistanceToTarget = new Lutt(4);
-            cityA.SpeedToTarget = new Speed(new Lutt(0), new Wor(0), 24);
-
-            var cityB = new City();
-            cityB.CityName = "B"; 
-            cityB.DistanceToTarget = new Lutt(8);
-            cityB.SpeedToTarget = new Speed(new Lutt(0), new Wor(0), 30);
-
-            var cityC = new City();
-            cityC.CityName = "C"; 
-            cityC.DistanceToTarget = new Lutt(10);
-            cityC.SpeedToTarget = new Speed(new Lutt(0), new Wor(0), 30);
-            
-            var cityD = new City();
-            cityD.CityName = "D"; 
-
-            cityA.TargetCity = cityB;
-            cityB.TargetCity = cityC;
-            cityC.TargetCity = cityD;
-
-            travel.Cities.Add(cityA);
-            travel.Cities.Add(cityB);
-            travel.Cities.Add(cityC);
-            travel.Cities.Add(cityD);
-
-            return travel.GetTimeSpentToTravel();
-
+            return CalculateTimeSpentToTravel.Run(unitOfTime);
         }
     }
 }

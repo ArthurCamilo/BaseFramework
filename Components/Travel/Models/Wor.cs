@@ -1,6 +1,6 @@
-using BaseFramework.Interfaces;
+using BaseFramework.Components.Travel.Interfaces;
 
-namespace BaseFramework.Models
+namespace BaseFramework.Components.Travel.Models
 {
     public class Wor : IUnitOfTime
     {

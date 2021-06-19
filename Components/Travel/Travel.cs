@@ -1,5 +1,5 @@
-using BaseFramework.Interfaces;
-using BaseFramework.Models;
+using BaseFramework.Components.Travel.Interfaces;
+using BaseFramework.Components.Travel.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace BaseFramework.Models
+namespace BaseFramework.Components.Travel
 {
     public class Travel
     {
-        
         public List<City> Cities { get; set; }
 
         public float GetTimeSpentToTravel () 
@@ -26,6 +25,5 @@ namespace BaseFramework.Models
             }
             return timeSpent;
         }
-
     }
 }

@@ -1,6 +1,6 @@
-using BaseFramework.Models;
+using BaseFramework.Components.Travel.Models;
 
-namespace BaseFramework.Interfaces
+namespace BaseFramework.Components.Travel.Interfaces
 {
     public interface IUnitOfTime
     {
